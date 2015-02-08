@@ -12,7 +12,7 @@ def tweetalize():
     print("Welcome to the awesometastic tweetalizer! Start analyzing your tweets now!")
 
     while True:
-      tw = raw_input("What tweet would you like to analyze? To quit, just enter 'q'. ") #if using python 3, use input function
+      tw = input("What tweet would you like to analyze? To quit, just enter 'q'. ") #if using python 3, use input function
 
       if tw == 'q' or tw == 'Q':
           exit()
@@ -21,19 +21,19 @@ def tweetalize():
       if len(tw) > 140:
           print("The number of characters in this tweet is too damn high!\nThe limit is 140.")
 
-      a = 0
-      for x in tw.split(' '):
-          if x[0] == "#":
-              print("Tweet contains the hashtag: " + x)
-              a += 1
-      print("The tweet has " + str(a) + " total #hashtags")
+      keyword = 0
+      for hashtag in tw.split(' '):
+          if hashtag[0] == "#":
+              print("Tweet contains the hashtag: " + hashtag)
+              keyword += 1
+      print("The tweet has " + str(keyword) + " total #hashtags")
 
-      b = 0
-      for x in tw.split(' '):
-          if x[0] == "@":
-              print("Tweet contains the mention: " + x)
-              b += 1
-      print("The tweet has " + str(b) + " total @mentions")
+      mention = 0
+      for mentions in tw.split(' '):
+          if mentions[0] == "@":
+              print("Tweet contains the mention: " + mentions)
+              mention += 1
+      print("The tweet has " + str(mention) + " total @mentions")
 
 
 tweetalize()
