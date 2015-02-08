@@ -12,9 +12,9 @@ def tweetalize():
     print("Welcome to the awesometastic tweetalizer! Start analyzing your tweets now!")
 
     while True:
-      tw = input("What tweet would you like to analyze? To quit, just enter 'q'. ") #if using python 3, use input function
+      tweet = input("What tweet would you like to analyze? To quit, just enter 'q'. ") #if using python 3, use input function
 
-      if tw == 'q' or tw == 'Q':
+      if tweet == 'q' or tweet == 'Q':
           exit()
 
       tweetLength = let(tw)
