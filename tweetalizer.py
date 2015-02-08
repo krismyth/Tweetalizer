@@ -17,8 +17,12 @@ def tweetalize():
       if tw == 'q' or tw == 'Q':
           exit()
 
-      print("Tweet is " + str(len(tw)) + " characters long")
-      if len(tw) > 140:
+      tweetLength = let(tw)
+      maxLength = 140
+
+      print("Tweet is " + str(tweetLength) + " characters long")
+      if tweetLength > maxLength:
+    # if let(tw) > 140:
           print("The number of characters in this tweet is too damn high!\nThe limit is 140.")
 
       keyword = 0
