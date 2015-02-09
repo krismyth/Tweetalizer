@@ -8,6 +8,14 @@
 
 import sys
 
+# primary function tweetalize:
+def tweetalize():
+  print("Welcome to the awesometastic tweetalizer! Start analyzing your tweets now!")
+  while True:
+    tweet = getTweetFromUser()
+    checkLength(tweet)
+    checkContent(tweet)
+
 def getTweetFromUser():  #if using python3, use input() instead of raw_input()
   userInput = input("What tweet would you like to analyze? To quit, just enter 'q'. ")
   if userInput == 'q' or userInput == 'Q':
@@ -23,33 +31,34 @@ def checkLength(tweet):
   if tweetLength > maxTweetLength:
     print("The number of characters in this tweet is too damn high!\nThe limit is 140.")
 
-def checkHashtags(tweet):
+def checkContent(tweet):
   hashCount = 0
-  for word in tweet.split(' '):
-    firstCharacter = word[0]
-    if firstCharacter == "#":
-      print("Tweet contains the hashtag: %s" % word)
-      hashCount += 1
-  print("The tweet has %d total #hashtags" % hashCount)
-
-def checkMentions(tweet):
   mentionCount = 0
-  for word in tweet.split(' '):
-    firstCharacter == word[0]
-    if firstCharacter == "@":
-      print("Tweet contains the mention: %s" % word)
-      mentionCount += 1
-    print("The tweet has %d total @mentions" % mentionCount)
+
+  tweetContent = tweet.split(' ')
+  for word in tweetContent:
+    if len(word) > 0:
+      if isHashtag(word):
+        hashCount += 1
+      elif isMention(word):
+        mentionCount += 1
+
+  print("The tweet has %d total #hashtags" % hashCount)
+  print("The tweet has %d total @mentions" % mentionCount)
 
 
-# primary function tweetalize:
-def tweetalize():
-  print("Welcome to the awesometastic tweetalizer! Start analyzing your tweets now!")
+def isHashtag(word):
+  firstCharacter = word[0]
+  if firstCharacter == "#":
+    print("Tweet contains the hashtag: %s" % word)
+    return True
+  return False
 
-  while True:
-    tweet = getTweetFromUser()
-    checkLength(tweet)
-    checkHashtags(tweet)
-    checkMentions(tweet)
+def isMention(word):
+  firstCharacter = word[0]
+  if firstCharacter == "@":
+    print("Tweet contains the mention: %s" % word)
+    return True
+  return False
 
 tweetalize()
