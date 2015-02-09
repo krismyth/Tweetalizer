@@ -8,6 +8,18 @@
 
 import sys
 
+def checkLength(tweet):
+  # checkLength function code goes here
+  tweetLength = len(tweet)
+      maxLength = 140
+
+      print("Tweet is " + str(tweetLength) + " characters long")
+      if tweetLength > maxLength:
+    # if let(tw) > 140:
+          print("The number of characters in this tweet is too damn high!\nThe limit is 140.")
+
+
+# primary function tweetalize:
 def tweetalize():
     print("Welcome to the awesometastic tweetalizer! Start analyzing your tweets now!")
 
@@ -17,13 +29,7 @@ def tweetalize():
       if tweet == 'q' or tweet == 'Q':
           exit()
 
-      tweetLength = let(tw)
-      maxLength = 140
-
-      print("Tweet is " + str(tweetLength) + " characters long")
-      if tweetLength > maxLength:
-    # if let(tw) > 140:
-          print("The number of characters in this tweet is too damn high!\nThe limit is 140.")
+      checkLength(tweet)
 
       keyword = 0
       for hashtag in tw.split(' '):
